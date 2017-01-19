@@ -82,9 +82,8 @@ class Scroller extends Component {
         onTouchMove={this.handleTouchMove}
         className={className}
         style={mergedStyles}
-        {...other}
       >
-        {children}
+        { React.cloneElement(children, {...other}) }
       </div>
     );
   }
