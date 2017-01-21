@@ -76,12 +76,6 @@ class Scroller extends Component {
       ...style,
     };
 
-    const childrenWithProps = React.Children.map(children,
-      (child) => React.cloneElement(child, {
-        ...other,
-      })
-    );
-
     return (
       <div
         onTouchStart={this.handleTouchStart}
@@ -89,7 +83,7 @@ class Scroller extends Component {
         className={className}
         style={mergedStyles}
       >
-        { childrenWithProps }
+        { children }
       </div>
     );
   }
