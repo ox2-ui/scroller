@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Scroller
+  className=""
+  style={Object {}}
+>
+  <div
+    className=""
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "backgroundColor": "transparent",
+        "bottom": "0",
+        "left": "0",
+        "overflowX": "hidden",
+        "overflowY": "auto",
+        "paddingBottom": "40px",
+        "position": "absolute",
+        "right": "0",
+        "top": "0",
+      }
+    }
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus officiis saepe debitis, sapiente, quas vel veniam nesciunt. Autem ipsa incidunt minus, eligendi consectetur id est vel magni harum doloremque. Voluptatibus, perferendis, corrupti! Autem enim molestiae excepturi sequi fugiat, iste sit ab. Ipsum in quae, nihil maxime. Facilis ducimus dolorem exercitationem iusto ex reprehenderit praesentium rem, enim quo eum accusamus molestiae laudantium minus recusandae nam, deleniti quam voluptatibus. Repellat dolorum facilis, consequuntur sint inventore, asperiores minima architecto earum laborum nisi tenetur totam error, alias blanditiis qui quisquam aliquid aperiam consequatur suscipit harum velit sed at! Repudiandae aspernatur, exercitationem incidunt atque.
+    </div>
+  </div>
+</Scroller>
+`;

@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const styles = {
   scroller: {
@@ -16,42 +16,51 @@ const styles = {
   },
 };
 
+const FIRST_ELEMENT = 0;
+
 /**
  * Scroller Component
  */
-
 class Scroller extends Component {
   static propTypes = {
     /**
-     * Elements to be rendered inside scroller
-     */
+    * Elements to be rendered inside scroller
+    */
     children: PropTypes.node.isRequired,
     /**
-     * The css class name of the root element.
-     */
+    * The css class name of the root element.
+    */
     className: PropTypes.string,
     /**
-     * Override the inline-styles of the root element.
-     */
+    * Override the inline-styles of the root element.
+    */
     style: PropTypes.object,
+  };
+
+  static defaultProps = {
+    className: '',
+    style: {},
   };
 
   state = {
     scrollStartY: 0,
   };
 
-  handleTouchStart = (event) => {
-    this.setState({scrollStartY: event.touches[0].clientY});
+  handleTouchStart = event => {
+    this.setState({
+      scrollStartY: event.touches[FIRST_ELEMENT].clientY,
+    });
   };
 
-  handleTouchMove = (event) => {
-    const scrollMoveY = event.changedTouches[0].clientY;
+  handleTouchMove = event => {
+    const scrollMoveY = event.changedTouches[FIRST_ELEMENT].clientY;
     const topOffset = event.currentTarget.scrollTop;
-    const maxContentHeight = event.currentTarget.scrollHeight;
+    const maxContentHeight =
+      event.currentTarget.scrollHeight;
     const itemHeight = event.currentTarget.clientHeight;
     // Prevent dragging when cotent bottom is reached
     if (this.state.scrollStartY > scrollMoveY) {
-      if ((topOffset + itemHeight) === maxContentHeight) {
+      if (topOffset + itemHeight === maxContentHeight) {
         event.preventDefault();
       }
     } else {
@@ -61,15 +70,17 @@ class Scroller extends Component {
       }
     }
 
-    this.setState({scrollStartY: event.touches[0].clientY});
+    this.setState({
+      scrollStartY: event.touches[FIRST_ELEMENT].clientY,
+    });
   };
 
   render() {
-    const { className: classNameProp, children, style, ...other } = this.props;
-
-    const className = classNames(
-      classNameProp
-    );
+    const {
+      className,
+      children,
+      style,
+    } = this.props;
 
     const mergedStyles = {
       ...styles.scroller,
@@ -78,12 +89,12 @@ class Scroller extends Component {
 
     return (
       <div
-        onTouchStart={this.handleTouchStart}
-        onTouchMove={this.handleTouchMove}
         className={className}
+        onTouchMove={this.handleTouchMove}
+        onTouchStart={this.handleTouchStart}
         style={mergedStyles}
       >
-        { children }
+        {children}
       </div>
     );
   }
