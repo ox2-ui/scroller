@@ -57,6 +57,7 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'react/jsx-boolean-value': ['error', 'always'],
     'react/jsx-filename-extension': 'off',
+    'react/jsx-no-bind': 'off',
     'react/jsx-no-literals': 'off',
     'react/no-children-prop': 'off',
     'react/no-set-state': 'off',
